@@ -6,7 +6,7 @@ const app = express();
 
 // Initialize an instance of Sequelize
 const sequelize = new Sequelize('garage', 'postgres', 'postgres', {
-  host: 'localhost:5432',
+  host: 'localhost',
   dialect: 'postgres',
 });
 
@@ -36,4 +36,4 @@ app.listen(3000, () => {
   sequelize.authenticate()
     .then(() => console.log('Database connected...'))
     .catch(err => console.log('Error: ' + err))
-});
+}); 
