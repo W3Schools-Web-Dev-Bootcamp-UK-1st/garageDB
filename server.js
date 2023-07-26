@@ -10,8 +10,6 @@ const sequelize = new Sequelize('garage', 'postgres', 'postgres', {
   dialect: 'postgres',
 });
 
-
-
 // Import models
 const Owner = require('./models/owner')(sequelize, DataTypes);
 const Car = require('./models/car')(sequelize, DataTypes);
@@ -20,7 +18,6 @@ const CarsParts = require('./models/carsParts')(sequelize, DataTypes);
 const Repair = require('./models/repair')(sequelize, DataTypes);
 const Service = require('./models/service')(sequelize, DataTypes);
 const OwnedCars = require('./models/ownedCars')(sequelize, DataTypes);
-
 
 // Associations
 Owner.associate({ Car, OwnedCars });
