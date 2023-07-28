@@ -1,17 +1,21 @@
 //conn.js
 const { Sequelize } = require("sequelize");
 
-// DB Connection Configuration
 const sequelize = new Sequelize("garage", "postgres", "postgres", {
-    host: "localhost:5432",
+    host: "localhost",
     dialect: "postgres",
+    logging: true,
 });
 
-// Test connection function
 async function testConnection() {
     try {
         await sequelize.authenticate();
         console.log("Connection has been established successfully.");
+        sequelize.sync().then(async () => {
+        // Populate DB with demo data
+        const populateDB = require('../populate');
+        await populateDB(sequelize);       
+        });
         return true;
     } catch (error) {
         console.error("Unable to connect to the database:", error);
