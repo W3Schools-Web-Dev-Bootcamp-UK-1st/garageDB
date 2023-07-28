@@ -13,8 +13,8 @@ async function testConnection() {
         console.log("Connection has been established successfully.");
         sequelize.sync().then(async () => {
         // Populate DB with demo data
-        const populateDB = require('../populate');
-        await populateDB(sequelize);       
+        // const populateDB = require('../populate');
+        // await populateDB(sequelize);       
         });
         return true;
     } catch (error) {
